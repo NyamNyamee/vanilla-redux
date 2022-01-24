@@ -30,14 +30,16 @@ export const actionCreators = {
 const store = configureStore({ reducer });
  */
 
-// createSlice
+// createSlice 사용 시, reducer를 정의하고, actions도 정의함. 기존처럼 새로운 state를 만들어 return할 수도 있고, state를 직접 mutate할 수 있음
 const toDos = createSlice({
   name: "toDosReducer",
-  initialState: [],
+  initialState: [], // 초기 state
   reducers: {
+    // add: 액션
     add: (state, action) => {
       state.push({ id: Date.now(), text: action.payload });
     },
+    // remove: 액션
     remove: (state, action) =>
       state.filter((toDo) => toDo.id !== action.payload),
   },
