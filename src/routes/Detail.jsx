@@ -1,11 +1,21 @@
 import React from "react";
+import { connect } from "react-redux";
 import { useParams } from "react-router";
 
-const Detail = () => {
+const Detail = ({ toDos }) => {
   const { id } = useParams();
-  console.log(id);
+  const toDo = toDos.find((toDo) => toDo.id === parseInt(id));
 
-  return <div>hi</div>;
+  return (
+    <div>
+      <h1>{toDo?.text}</h1>
+      Created at {toDo?.id}
+    </div>
+  );
 };
 
-export default Detail;
+const mapStateToProps = (state, ownProps) => {
+  return { toDos: state };
+};
+
+export default connect(mapStateToProps, null)(Detail);

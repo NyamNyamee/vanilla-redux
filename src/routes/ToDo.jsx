@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { actionCreators } from "../store";
+import { actionCreators, remove } from "../store";
 
 const ToDo = ({ text, id, deleteToDo }) => {
   const onClickDeleteButton = () => {
@@ -20,7 +20,8 @@ const ToDo = ({ text, id, deleteToDo }) => {
 // index.js에서 설정한 Provider의 store의 dispatch함수를 Home컴포넌트의 props로 전달해줌
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    deleteToDo: () => dispatch(actionCreators.deleteToDo(ownProps.id)),
+    // deleteToDo: () => dispatch(actionCreators.deleteToDo(ownProps.id)),
+    deleteToDo: () => dispatch(remove(ownProps.id)),
   };
 };
 

@@ -1,13 +1,13 @@
 import { createStore } from "redux";
 
-// Actions
-const COUNT_ADD = "COUNT_ADD";
-const COUNT_MINUS = "COUNT_ADD";
-
 // DOM
 const addBtn = document.getElementById("add");
 const minusBtn = document.getElementById("minus");
 const numberSpan = document.querySelector("span");
+
+// Actions
+const COUNT_ADD = "COUNT_ADD";
+const COUNT_MINUS = "COUNT_ADD";
 
 // reducer : 두번쨰 파라미터로 받은 액션에 따라 데이터(state)를 변경하고 리턴
 const countModifier = (count = 0, action) => {

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { connect } from "react-redux";
-import { actionCreators } from "../store";
+import { actionCreators, add } from "../store";
 import ToDo from "./ToDo";
 
 const Home = ({ toDos, addToDo, deleteToDo }) => {
@@ -48,7 +48,8 @@ const mapStateToProps = (state, ownProps) => {
 // index.js에서 설정한 Provider의 store의 dispatch함수를 Home컴포넌트의 props로 전달해줌
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    addToDo: (text) => dispatch(actionCreators.addToDo(text)),
+    // addToDo: (text) => dispatch(actionCreators.addToDo(text)),
+    addToDo: (text) => dispatch(add(text)),
   };
 };
 
